@@ -1,0 +1,3 @@
+cryptography
+pyIsEmail
+pytest
