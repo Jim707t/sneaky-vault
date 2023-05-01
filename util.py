@@ -31,6 +31,7 @@ def capture():
     parser.add_argument('-u', '--update', help='update data')
     parser.add_argument('-e', '--email', help='email for searching')
     parser.add_argument('-n', '--name', help='name for searching')
+    parser.add_argument('-p', '--password', help='password for adding')
     args = parser.parse_args()
     return args
 
@@ -48,5 +49,6 @@ def extract_command(mode):
         site_name = command.update        
     user_name = command.name
     email_address = command.email
-    return site_name, user_name, email_address
+    password = command.password
+    return site_name, user_name, email_address, password
 

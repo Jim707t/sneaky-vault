@@ -1,1 +1,3 @@
 .venv
+/locals
+/__pycache__

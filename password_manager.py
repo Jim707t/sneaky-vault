@@ -54,7 +54,7 @@ class PasswordManager:
         Add data to json file
         """
         print(MSG_ADD)
-        site_name, user_name, email_address = extract_command('add')
+        site_name, user_name, email_address, password = extract_command('add')
         if not site_name:
             site_name = input('\nEnter the site name: ').strip()
         if not user_name:
@@ -68,7 +68,10 @@ class PasswordManager:
                         break
                 except ValueError:
                     print("Please enter a valid email!")
-                    pass
+                    pass 
+        if not password:
+            password = input('\n Now enter the password: ').strip()
+        
         decrypted_password = None 
         the_key = None       
         # Take and encrypt the password  
@@ -95,7 +98,6 @@ class PasswordManager:
                 if attempt == max_attempts:
                     sys.exit("Maximum attempts reached, exiting.")
                           
-        password = input('\n Now enter the password: ').strip()
         encrypted_password = encrypte_password(password, the_key)
         
         # Generate an ID number for the new entry
